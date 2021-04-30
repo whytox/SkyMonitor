@@ -1,0 +1,38 @@
+.App {
+  text-align: center;
+}
+
+#home-menu {
+  text-align: left;
+
+}
+
+nav {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+
+}
+
+.nav-links {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form input {
+  margin-bottom: 10px;
+  width: 100px;
+}
+

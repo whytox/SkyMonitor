@@ -1,0 +1,27 @@
+CREATE TABLE Utente (
+	idUtente INT(6) PRIMARY KEY AUTO_INCREMENT,
+	email VARCHAR(50) NOT NULL  UNIQUE,
+	regDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
+
+CREATE TABLE Aeroporto (
+	codiceIATA CHAR(3) NOT NULL PRIMARY KEY,
+	città VARCHAR(20) NOT NULL,
+	nazione VARCHAR(20) NOT NULL
+)
+
+CREATE TABLE VoloMonitorato (
+	idVolo CHAR(24) PRIMARY KEY,
+	origineIATA CHAR(3) REFERENCES aeroporto (codiceIATA),
+	destinazioneIATA CHAR(3) REFERENCES aeroporto (codiceIATA),
+	dataVolo DATE,
+	orarioVolo TIME,
+	UNIQUE (origineIATA, destinazioneIATA, dataVolo, orarioVolo)
+)
+
+CREATE TABLE monitoraggio (
+	utente INT(6) REFERENCES utente (idUtente),
+	volo CHAR(24) REFERENCES volomonitoraro (idVolo),
+	sogliaPrezzo FLOAT,
+	PRIMARY KEY (utente, volo)
+	)
